@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-web-application
+  labels:
+    app: go-web-application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-web-application
+  template:
+    metadata:
+      labels:
+        app: go-web-application
+    spec:
+      containers:
+      - name: go-web-application
+        image: mundaneeditorial/go-web-application
+        ports:
+        - containerPort: 8080
